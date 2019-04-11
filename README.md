@@ -1,0 +1,2 @@
+# Base
+Plantillas para aplicaciones
