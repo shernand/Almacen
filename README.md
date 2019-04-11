@@ -1,2 +1,5 @@
-# Base
-Plantillas para aplicaciones
+# Plantilla para aplicaciones
+## Para distintas plataformas y lenguajes 
+### Arduino
+### Ensamblador
+### Python
