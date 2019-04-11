@@ -12,13 +12,6 @@
 // --> Verificar ACTUALIZACIONES de MN_Menu, Parola y otros apoyos.
 //******************************************************************************
 //-----[ AJUSTES PRINCIPALES ]-----
-// --> PENDIENTE: Uso de Puertos Seriales extra, para comunicar resultados a uC.
-// --> PENDIENTE: Uso del I2C como esclavo (servidor) con otros uCs.
-// --> PENDIENTE: Esquema (Interruptor) para SALIR de opciones que EJECUTAN.
-// Para comunicación con CLIENTE, que consume el resultado de la selección del 
-// MENÚ Se DEBE usar el puerto de comunicación SERIAL del HARDWARE, para mayor 
-// eficiencia, por lo tanto, se DEBE deshabilitar el envío de info por el puerto
-// SERIAL estándard.
 //=============================================================================
 //---[ BIBLIOTECAS y RECURSOS y AJUSTES de la APLICACIÓN ]---
 // Aquí están: Definiciones, Bibliotecas, Recursos, Ajustes por Elemento
