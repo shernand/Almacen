@@ -1,0 +1,3148 @@
+1
+00:00:00,080 --> 00:00:04,960
+today in the workshop we're working with
+
+2
+00:00:01,919 --> 00:00:07,040
+waterproof ultrasonic distance sensors
+
+3
+00:00:04,960 --> 00:00:09,679
+we'll see how these devices work and how
+
+4
+00:00:07,040 --> 00:00:12,719
+to use them with an arduino we'll also
+
+5
+00:00:09,679 --> 00:00:14,719
+test them outside and even underwater
+
+6
+00:00:12,718 --> 00:00:16,349
+we're going the distance today so
+
+7
+00:00:14,718 --> 00:00:27,189
+welcome to the workshop
+
+8
+00:00:16,350 --> 00:00:27,189
+[Music]
+
+9
+00:00:27,839 --> 00:00:31,678
+well hello and welcome to the workshop
+
+10
+00:00:29,760 --> 00:00:34,000
+and today we are going to be working
+
+11
+00:00:31,678 --> 00:00:36,238
+with a couple of ultrasonic distance
+
+12
+00:00:34,000 --> 00:00:38,480
+sensors now of course we've used an
+
+13
+00:00:36,238 --> 00:00:40,399
+ultrasonic distance sensor before in our
+
+14
+00:00:38,479 --> 00:00:42,558
+robotics and other projects and we've
+
+15
+00:00:40,399 --> 00:00:45,039
+used it many times and that's our good
+
+16
+00:00:42,558 --> 00:00:48,000
+friend the hcsr04
+
+17
+00:00:45,039 --> 00:00:50,480
+the hdsr04 is a great little sensor it's
+
+18
+00:00:48,000 --> 00:00:52,558
+relatively accurate it can sense over a
+
+19
+00:00:50,479 --> 00:00:55,519
+reasonable distance it's very
+
+20
+00:00:52,558 --> 00:00:58,078
+inexpensive and it's pretty easy to use
+
+21
+00:00:55,520 --> 00:01:00,559
+however i have an application right now
+
+22
+00:00:58,079 --> 00:01:02,640
+in which it is not suitable specifically
+
+23
+00:01:00,558 --> 00:01:05,158
+a robot i'm building that is meant to
+
+24
+00:01:02,640 --> 00:01:08,560
+operate outdoors and the
+
+25
+00:01:05,159 --> 00:01:11,118
+hcsr04 is not exactly a great sensor to
+
+26
+00:01:08,560 --> 00:01:12,719
+use outdoors there are a number of
+
+27
+00:01:11,118 --> 00:01:15,519
+reasons for that but one of the
+
+28
+00:01:12,719 --> 00:01:18,400
+principal reasons is that you can't get
+
+29
+00:01:15,519 --> 00:01:21,679
+it wet so i'm evaluating a couple of
+
+30
+00:01:18,400 --> 00:01:24,080
+ultrasonic sensors that you can use in a
+
+31
+00:01:21,680 --> 00:01:26,640
+damp and outdoor environment and i want
+
+32
+00:01:24,079 --> 00:01:28,879
+to show them to you both today so let's
+
+33
+00:01:26,640 --> 00:01:30,799
+first of all take a quick look at how
+
+34
+00:01:28,879 --> 00:01:32,478
+these sensors work and then i'll show
+
+35
+00:01:30,799 --> 00:01:37,360
+you the sensors that we're going to be
+
+36
+00:01:32,478 --> 00:01:40,078
+using instead of the hc sr04
+
+37
+00:01:37,359 --> 00:01:43,438
+ultrasonic sensors use 40 kilohertz
+
+38
+00:01:40,078 --> 00:01:45,839
+sound pulses to measure distance
+
+39
+00:01:43,438 --> 00:01:47,599
+these devices consist of a transmitter
+
+40
+00:01:45,840 --> 00:01:50,478
+and receiver although those can be
+
+41
+00:01:47,599 --> 00:01:52,559
+combined into one transducer
+
+42
+00:01:50,478 --> 00:01:55,599
+the transmitter sends out pulses of
+
+43
+00:01:52,560 --> 00:01:58,320
+ultrasonic sound
+
+44
+00:01:55,599 --> 00:02:00,319
+if a surface reflects this signal we can
+
+45
+00:01:58,319 --> 00:02:02,398
+use the time delay between the
+
+46
+00:02:00,319 --> 00:02:05,359
+transmission and the reception to
+
+47
+00:02:02,399 --> 00:02:07,040
+calculate the distance
+
+48
+00:02:05,359 --> 00:02:08,800
+if the distance is shorter the time
+
+49
+00:02:07,040 --> 00:02:11,120
+delay will be shorter
+
+50
+00:02:08,800 --> 00:02:14,000
+conversely if it's longer the time delay
+
+51
+00:02:11,120 --> 00:02:14,000
+will be longer
+
+52
+00:02:14,479 --> 00:02:18,159
+the
+
+53
+00:02:15,080 --> 00:02:21,440
+hcsr04 is a very popular ultrasonic
+
+54
+00:02:18,159 --> 00:02:24,120
+distance sensor it works on 5 volts only
+
+55
+00:02:21,439 --> 00:02:28,239
+however you can use an
+
+56
+00:02:24,120 --> 00:02:30,879
+rcwl1601 or a us-100 if you want a 3.3
+
+57
+00:02:28,239 --> 00:02:33,599
+volt equivalent this sensor can run in a
+
+58
+00:02:30,878 --> 00:02:35,919
+2-wire or 1-wire mode
+
+59
+00:02:33,598 --> 00:02:37,839
+it's reasonably accurate and it's very
+
+60
+00:02:35,919 --> 00:02:41,280
+inexpensive
+
+61
+00:02:37,840 --> 00:02:43,680
+but the hcsr04 isn't perfect it's not
+
+62
+00:02:41,280 --> 00:02:46,959
+suitable for outdoor use it's quite
+
+63
+00:02:43,680 --> 00:02:50,719
+fragile and susceptible to dirt and most
+
+64
+00:02:46,959 --> 00:02:52,878
+importantly it is not water resistant
+
+65
+00:02:50,719 --> 00:02:55,039
+however there are ultrasonic distance
+
+66
+00:02:52,878 --> 00:02:57,919
+sensors that are waterproof and we'll be
+
+67
+00:02:55,039 --> 00:03:00,919
+looking at two of them today the jsn
+
+68
+00:02:57,919 --> 00:03:00,919
+sr04t
+
+69
+00:03:02,479 --> 00:03:06,840
+and the a02 yyuw
+
+70
+00:03:07,919 --> 00:03:11,679
+let's take a quick look at how these
+
+71
+00:03:09,598 --> 00:03:14,679
+sensors performance compares to the
+
+72
+00:03:11,680 --> 00:03:14,680
+hcsr04
+
+73
+00:03:14,800 --> 00:03:18,120
+the
+
+74
+00:03:16,199 --> 00:03:21,759
+a02yyuw and the
+
+75
+00:03:18,120 --> 00:03:23,080
+hcsr04 both have about the same range
+
+76
+00:03:21,759 --> 00:03:26,798
+the jsn
+
+77
+00:03:23,080 --> 00:03:29,519
+sr04t however has a longer maximum range
+
+78
+00:03:26,799 --> 00:03:31,680
+but also a longer minimum range
+
+79
+00:03:29,519 --> 00:03:33,599
+the accuracy of all of these sensors is
+
+80
+00:03:31,680 --> 00:03:35,920
+quite good certainly suitable for
+
+81
+00:03:33,598 --> 00:03:38,399
+robotics and intruder detection
+
+82
+00:03:35,919 --> 00:03:40,878
+applications none of them however would
+
+83
+00:03:38,400 --> 00:03:42,400
+be good enough for surveying the jsn
+
+84
+00:03:40,878 --> 00:03:43,798
+sr04t
+
+85
+00:03:42,400 --> 00:03:47,760
+and the
+
+86
+00:03:43,799 --> 00:03:51,760
+a02yyuw can work with both 3.3 and 5
+
+87
+00:03:47,759 --> 00:03:55,919
+volt logic the hcsr04 however is just a
+
+88
+00:03:51,759 --> 00:03:57,840
+5 volt device both the jsn sr04t and the
+
+89
+00:03:55,919 --> 00:04:00,719
+hcsr04
+
+90
+00:03:57,840 --> 00:04:02,878
+support raw data in other words they
+
+91
+00:04:00,719 --> 00:04:04,239
+deliver back the length of the received
+
+92
+00:04:02,878 --> 00:04:06,479
+pulse and leave it to the
+
+93
+00:04:04,239 --> 00:04:08,719
+microcontroller attached to calculate
+
+94
+00:04:06,479 --> 00:04:11,518
+the distance the two sensors we are
+
+95
+00:04:08,719 --> 00:04:13,438
+looking at today support serial data
+
+96
+00:04:11,519 --> 00:04:16,319
+with serial data the distance is
+
+97
+00:04:13,438 --> 00:04:19,358
+calculated by the sensor and is descent
+
+98
+00:04:16,319 --> 00:04:21,599
+as a serial data packet in terms of cost
+
+99
+00:04:19,358 --> 00:04:24,799
+however both of these sensors are much
+
+100
+00:04:21,600 --> 00:04:27,120
+more expensive than the hcsr04
+
+101
+00:04:24,800 --> 00:04:28,960
+however they're not extremely expensive
+
+102
+00:04:27,120 --> 00:04:31,439
+and if you need a sensor that is rugged
+
+103
+00:04:28,959 --> 00:04:33,918
+and capable of working outdoors they're
+
+104
+00:04:31,439 --> 00:04:36,160
+probably good choices
+
+105
+00:04:33,918 --> 00:04:38,000
+so let's go take a closer look at these
+
+106
+00:04:36,160 --> 00:04:39,360
+sensors now
+
+107
+00:04:38,000 --> 00:04:41,120
+now i've got the sensors that we're
+
+108
+00:04:39,360 --> 00:04:43,560
+going to be using in our experiments
+
+109
+00:04:41,120 --> 00:04:46,000
+today over here i've also got an
+
+110
+00:04:43,560 --> 00:04:49,439
+hcsr04 sensor just so you can sort of
+
+111
+00:04:46,000 --> 00:04:52,800
+compare everything and the one over here
+
+112
+00:04:49,439 --> 00:04:55,918
+is the a02yyuw
+
+113
+00:04:52,800 --> 00:04:57,000
+sensor and as you can see it looks a lot
+
+114
+00:04:55,918 --> 00:04:59,120
+like the
+
+115
+00:04:57,000 --> 00:05:02,000
+hcsr04 in that it's got a separate
+
+116
+00:04:59,120 --> 00:05:05,120
+transmit and receive transducer but it
+
+117
+00:05:02,000 --> 00:05:07,600
+is substantially larger than that unit
+
+118
+00:05:05,120 --> 00:05:10,000
+now over here in the middle these two
+
+119
+00:05:07,600 --> 00:05:11,879
+pieces are actually one sensor this is
+
+120
+00:05:10,000 --> 00:05:15,279
+the jsn
+
+121
+00:05:11,879 --> 00:05:19,038
+sr04t and it comes as a separate sensor
+
+122
+00:05:15,279 --> 00:05:21,918
+that plugs into a board over here and
+
+123
+00:05:19,038 --> 00:05:23,360
+this board is what you um wire
+
+124
+00:05:21,918 --> 00:05:25,839
+everything up to of course at the
+
+125
+00:05:23,360 --> 00:05:29,400
+electronics and as you can see the board
+
+126
+00:05:25,839 --> 00:05:31,038
+is similar in size to the hc
+
+127
+00:05:29,399 --> 00:05:32,879
+sr04
+
+128
+00:05:31,038 --> 00:05:34,478
+a little bit taller than it and of
+
+129
+00:05:32,879 --> 00:05:36,800
+course the sensor is completely
+
+130
+00:05:34,478 --> 00:05:38,560
+different and it has a fairly long cable
+
+131
+00:05:36,800 --> 00:05:41,280
+i think that's a couple of meters long
+
+132
+00:05:38,560 --> 00:05:43,199
+so you can mount it away
+
+133
+00:05:41,279 --> 00:05:46,159
+and keep your electronics nice and safe
+
+134
+00:05:43,199 --> 00:05:48,400
+and dry and so these two are the units
+
+135
+00:05:46,160 --> 00:05:50,800
+that we are going to be using today in
+
+136
+00:05:48,399 --> 00:05:52,399
+our experiments so let's get going
+
+137
+00:05:50,800 --> 00:05:54,199
+now the first sensor that we're going to
+
+138
+00:05:52,399 --> 00:05:56,959
+check out is a jsn
+
+139
+00:05:54,199 --> 00:05:59,520
+sr04t sensor this is the one that had a
+
+140
+00:05:56,959 --> 00:06:01,758
+separate circuit board and sensor unit
+
+141
+00:05:59,519 --> 00:06:03,839
+and another way that this one differs
+
+142
+00:06:01,759 --> 00:06:06,400
+from the other ultrasonic sensors we've
+
+143
+00:06:03,839 --> 00:06:08,879
+seen is that the sensor unit just uses
+
+144
+00:06:06,399 --> 00:06:11,279
+one transducer it's using it as both the
+
+145
+00:06:08,879 --> 00:06:13,360
+transmitter and the receiver and i
+
+146
+00:06:11,279 --> 00:06:15,758
+believe that this is the reason why the
+
+147
+00:06:13,360 --> 00:06:18,160
+minimum range of this sensor is down
+
+148
+00:06:15,759 --> 00:06:20,879
+around 20 centimeters it just simply
+
+149
+00:06:18,160 --> 00:06:23,360
+can't flip itself back and forth in time
+
+150
+00:06:20,879 --> 00:06:25,918
+in order to resolve anything shorter
+
+151
+00:06:23,360 --> 00:06:28,240
+than that but other than that the sensor
+
+152
+00:06:25,918 --> 00:06:30,240
+does seem to get a bit of a bad
+
+153
+00:06:28,240 --> 00:06:32,478
+reputation on the internet and i don't
+
+154
+00:06:30,240 --> 00:06:34,478
+think it's very deserved quite frankly
+
+155
+00:06:32,478 --> 00:06:36,639
+there's even a youtube video out there
+
+156
+00:06:34,478 --> 00:06:38,719
+that specifically tells you not to buy
+
+157
+00:06:36,639 --> 00:06:40,800
+it and i saw that video after i bought a
+
+158
+00:06:38,720 --> 00:06:43,199
+couple and thought did i make a big
+
+159
+00:06:40,800 --> 00:06:46,160
+mistake but what i've noticed about
+
+160
+00:06:43,199 --> 00:06:48,639
+these videos is that they all use this
+
+161
+00:06:46,160 --> 00:06:51,759
+sensor in an emulation mode where it
+
+162
+00:06:48,639 --> 00:06:54,319
+emulates an hcsr04
+
+163
+00:06:51,759 --> 00:06:56,560
+sensor and there are two aspects about
+
+164
+00:06:54,319 --> 00:06:58,639
+that first of all i have found by
+
+165
+00:06:56,560 --> 00:07:01,598
+experimenting that if you change the
+
+166
+00:06:58,639 --> 00:07:03,280
+timing on it slightly it will work fine
+
+167
+00:07:01,598 --> 00:07:05,199
+and it's actually within specs of the
+
+168
+00:07:03,279 --> 00:07:07,359
+hcsr04
+
+169
+00:07:05,199 --> 00:07:09,439
+another thing i've noticed is that
+
+170
+00:07:07,360 --> 00:07:11,680
+everyone who tests it tested in this
+
+171
+00:07:09,439 --> 00:07:14,240
+emulation mode whereas this sensor
+
+172
+00:07:11,680 --> 00:07:16,400
+actually has six operating modes
+
+173
+00:07:14,240 --> 00:07:18,720
+including modes in which it calculates
+
+174
+00:07:16,399 --> 00:07:20,799
+the distance all on its own so i thought
+
+175
+00:07:18,720 --> 00:07:22,960
+i'd give it a proper test by testing it
+
+176
+00:07:20,800 --> 00:07:24,800
+in a couple of different modes so let's
+
+177
+00:07:22,959 --> 00:07:26,719
+go and take a look at this sensor right
+
+178
+00:07:24,800 --> 00:07:28,800
+now and then i'll show you some code
+
+179
+00:07:26,720 --> 00:07:33,120
+that we can use to test it in a couple
+
+180
+00:07:28,800 --> 00:07:33,120
+of different modes and see how it works
+
+181
+00:07:33,519 --> 00:07:36,399
+the jsn
+
+182
+00:07:34,839 --> 00:07:39,038
+sr04t
+
+183
+00:07:36,399 --> 00:07:40,079
+is a separate sensor and printed circuit
+
+184
+00:07:39,038 --> 00:07:42,318
+board
+
+185
+00:07:40,079 --> 00:07:44,318
+the sensor is attached to a two meter
+
+186
+00:07:42,319 --> 00:07:46,080
+cable which attaches to the board with
+
+187
+00:07:44,319 --> 00:07:48,720
+the two pin connector
+
+188
+00:07:46,079 --> 00:07:51,120
+the sensor itself is a single transducer
+
+189
+00:07:48,720 --> 00:07:53,360
+design this transducer acts as both the
+
+190
+00:07:51,120 --> 00:07:57,598
+transmitter and receiver
+
+191
+00:07:53,360 --> 00:08:00,080
+the jsn sr04t has six different modes of
+
+192
+00:07:57,598 --> 00:08:03,120
+operation
+
+193
+00:08:00,079 --> 00:08:06,959
+in mode 0 which is the default mode this
+
+194
+00:08:03,120 --> 00:08:09,280
+sensor will emulate an hcsr04
+
+195
+00:08:06,959 --> 00:08:13,120
+it has the same pin out and can be used
+
+196
+00:08:09,279 --> 00:08:15,758
+in the same circuits as the hcsr0
+
+197
+00:08:13,120 --> 00:08:19,519
+mode 1 is activated by shorting the tube
+
+198
+00:08:15,759 --> 00:08:22,319
+m1 pads in mode 1 the sensor calculates
+
+199
+00:08:19,519 --> 00:08:24,719
+the distance itself and sends it back as
+
+200
+00:08:22,319 --> 00:08:26,240
+serial data and it sends its data
+
+201
+00:08:24,720 --> 00:08:29,280
+constantly
+
+202
+00:08:26,240 --> 00:08:32,158
+mode 2 is activated by shorting the m2
+
+203
+00:08:29,279 --> 00:08:34,718
+pads in this mode you need to request
+
+204
+00:08:32,158 --> 00:08:38,080
+the serial data by sending it the
+
+205
+00:08:34,719 --> 00:08:40,959
+hexadecimal character 5 5. it will then
+
+206
+00:08:38,080 --> 00:08:43,278
+return one block of data in this way you
+
+207
+00:08:40,958 --> 00:08:45,278
+can just request a distance measurement
+
+208
+00:08:43,278 --> 00:08:46,159
+rather than having it continually sent
+
+209
+00:08:45,278 --> 00:08:48,480
+to you
+
+210
+00:08:46,159 --> 00:08:50,958
+modes three through five are activated
+
+211
+00:08:48,480 --> 00:08:52,959
+by placing a resistor across the mode
+
+212
+00:08:50,958 --> 00:08:55,278
+pins the value of the resistor will
+
+213
+00:08:52,958 --> 00:08:58,559
+determine what mode you are in
+
+214
+00:08:55,278 --> 00:09:01,439
+in mode 3 which uses a 200k resistor the
+
+215
+00:08:58,559 --> 00:09:03,919
+sensor is an automatic trigger mode this
+
+216
+00:09:01,440 --> 00:09:06,399
+is like an hcsr04
+
+217
+00:09:03,919 --> 00:09:09,039
+without a trigger pin the trigger is
+
+218
+00:09:06,399 --> 00:09:11,519
+fired every 200 milliseconds and you can
+
+219
+00:09:09,039 --> 00:09:13,278
+read the results and then calculate the
+
+220
+00:09:11,519 --> 00:09:16,639
+distance yourself
+
+221
+00:09:13,278 --> 00:09:19,600
+mode 4 which is activated with a 360 k
+
+222
+00:09:16,639 --> 00:09:22,159
+resistor across the mode pins is the low
+
+223
+00:09:19,600 --> 00:09:24,240
+power automatic trigger mode it's the
+
+224
+00:09:22,159 --> 00:09:26,958
+same as mode 3 except the sensor
+
+225
+00:09:24,240 --> 00:09:30,320
+consumes very little power consuming
+
+226
+00:09:26,958 --> 00:09:32,479
+only 70 micro amps on idle it does this
+
+227
+00:09:30,320 --> 00:09:35,920
+by powering down certain sections like
+
+228
+00:09:32,480 --> 00:09:39,120
+its internal watchdog timer in mode 5
+
+229
+00:09:35,919 --> 00:09:42,000
+which is activated by placing a 470k
+
+230
+00:09:39,120 --> 00:09:45,600
+resistor across the mode pads it doesn't
+
+231
+00:09:42,000 --> 00:09:46,639
+act as a sensor but acts as a 1.5 meter
+
+232
+00:09:45,600 --> 00:09:49,120
+switch
+
+233
+00:09:46,639 --> 00:09:51,759
+it will stay high as long as the
+
+234
+00:09:49,120 --> 00:09:54,480
+distance is less than 1.5 meters
+
+235
+00:09:51,759 --> 00:09:56,399
+otherwise it will go low this is used
+
+236
+00:09:54,480 --> 00:09:59,519
+for things like automatic backup
+
+237
+00:09:56,399 --> 00:09:59,519
+detector alarms
+
+238
+00:09:59,919 --> 00:10:07,360
+the serial data from the jsn sr04t
+
+239
+00:10:03,679 --> 00:10:08,799
+is sent at 9600 baud and consists of
+
+240
+00:10:07,360 --> 00:10:10,959
+four bytes
+
+241
+00:10:08,799 --> 00:10:14,240
+the first byte is the header and it is
+
+242
+00:10:10,958 --> 00:10:16,799
+always hexadecimal ff
+
+243
+00:10:14,240 --> 00:10:19,278
+the next two bytes are the actual sensor
+
+244
+00:10:16,799 --> 00:10:21,838
+data with the high byte being first and
+
+245
+00:10:19,278 --> 00:10:23,759
+the low byte being second this is the
+
+246
+00:10:21,839 --> 00:10:25,680
+distance in millimeters that has been
+
+247
+00:10:23,759 --> 00:10:28,078
+measured by the sensor
+
+248
+00:10:25,679 --> 00:10:30,799
+the final byte is a checksum it is the
+
+249
+00:10:28,078 --> 00:10:32,958
+addition of the previous three bytes
+
+250
+00:10:30,799 --> 00:10:35,359
+note the checksum only holds the bottom
+
+251
+00:10:32,958 --> 00:10:37,119
+eight bits of this calculation
+
+252
+00:10:35,360 --> 00:10:39,120
+upon receiving the data you should
+
+253
+00:10:37,120 --> 00:10:41,600
+perform the same mathematics and
+
+254
+00:10:39,120 --> 00:10:43,200
+determine that the checksums match if
+
+255
+00:10:41,600 --> 00:10:44,560
+they don't then the data has been
+
+256
+00:10:43,200 --> 00:10:46,399
+scrambled
+
+257
+00:10:44,559 --> 00:10:51,199
+so now that we know a little bit about
+
+258
+00:10:46,399 --> 00:10:52,440
+it let's go and hook up our dsn sr04t
+
+259
+00:10:51,200 --> 00:10:55,200
+now this is the
+
+260
+00:10:52,440 --> 00:10:57,200
+jsn04t which as we've seen before is a
+
+261
+00:10:55,200 --> 00:10:59,200
+sensor that comes in actually two parts
+
+262
+00:10:57,200 --> 00:11:02,160
+there's a sensor unit itself that's on
+
+263
+00:10:59,200 --> 00:11:04,079
+the cable and a circuit board over here
+
+264
+00:11:02,159 --> 00:11:06,719
+now if we look at the head of the sensor
+
+265
+00:11:04,078 --> 00:11:10,399
+itself you can see this is a completely
+
+266
+00:11:06,720 --> 00:11:12,639
+sealed unit and it just has a transducer
+
+267
+00:11:10,399 --> 00:11:15,039
+on the front over here there's a little
+
+268
+00:11:12,639 --> 00:11:17,199
+opening beside the transducer but i
+
+269
+00:11:15,039 --> 00:11:18,799
+believe it's sealed behind that as well
+
+270
+00:11:17,200 --> 00:11:21,360
+and that's probably just to allow the
+
+271
+00:11:18,799 --> 00:11:23,519
+sound to get in a bit better now let's
+
+272
+00:11:21,360 --> 00:11:25,600
+take a look at the board that comes with
+
+273
+00:11:23,519 --> 00:11:28,560
+this and if we take a good look at the
+
+274
+00:11:25,600 --> 00:11:31,600
+board now this is the version 3 board
+
+275
+00:11:28,559 --> 00:11:34,078
+and the big difference between version 3
+
+276
+00:11:31,600 --> 00:11:37,680
+and the previous versions is how you set
+
+277
+00:11:34,078 --> 00:11:40,239
+the mode on version 3 up in the corner
+
+278
+00:11:37,679 --> 00:11:43,120
+over here you'll see a couple of jumpers
+
+279
+00:11:40,240 --> 00:11:45,759
+there's one that says m1 a one above it
+
+280
+00:11:43,120 --> 00:11:49,039
+that says m2 and a couple below that
+
+281
+00:11:45,759 --> 00:11:51,838
+same mode and the m1 and m2 ones can be
+
+282
+00:11:49,039 --> 00:11:55,039
+sorted out to put the device into mode
+
+283
+00:11:51,839 --> 00:11:56,800
+m1 or m2 respectively if you want to go
+
+284
+00:11:55,039 --> 00:11:58,799
+for some of the other modes you actually
+
+285
+00:11:56,799 --> 00:12:02,240
+need to put a small surface mount
+
+286
+00:11:58,799 --> 00:12:04,479
+resistor across this one that says mode
+
+287
+00:12:02,240 --> 00:12:07,039
+and the value of that resistor will
+
+288
+00:12:04,480 --> 00:12:09,039
+determine what mode you have if you
+
+289
+00:12:07,039 --> 00:12:11,199
+don't have anything on it as you see
+
+290
+00:12:09,039 --> 00:12:15,360
+right now then this is defaulting to
+
+291
+00:12:11,200 --> 00:12:17,120
+mode 0 which means it emulates an hcsr04
+
+292
+00:12:15,360 --> 00:12:19,440
+and you will notice the pin outs on the
+
+293
+00:12:17,120 --> 00:12:22,000
+bottom over here have four pins in fact
+
+294
+00:12:19,440 --> 00:12:24,079
+if i flip this around so you can see the
+
+295
+00:12:22,000 --> 00:12:26,480
+writing on that if you can see that
+
+296
+00:12:24,078 --> 00:12:29,599
+you'll see it says 5 volt trigger echo
+
+297
+00:12:26,480 --> 00:12:31,000
+and ground and those are indeed the pins
+
+298
+00:12:29,600 --> 00:12:34,240
+that you use in an
+
+299
+00:12:31,000 --> 00:12:36,320
+hcsr04 so you can pop this in as a
+
+300
+00:12:34,240 --> 00:12:38,480
+direct replacement for it if you wish of
+
+301
+00:12:36,320 --> 00:12:41,120
+course the trigger and echo pins are
+
+302
+00:12:38,480 --> 00:12:43,680
+also transmit and receive so they can be
+
+303
+00:12:41,120 --> 00:12:46,639
+used for the other modes as well
+
+304
+00:12:43,679 --> 00:12:50,078
+but otherwise it's a fairly easy unit to
+
+305
+00:12:46,639 --> 00:12:52,639
+use it has a really long cable over here
+
+306
+00:12:50,078 --> 00:12:54,719
+that you can use to separate the sensor
+
+307
+00:12:52,639 --> 00:12:57,120
+from the board and so this would be
+
+308
+00:12:54,720 --> 00:12:58,399
+ideal for an application you're using
+
+309
+00:12:57,120 --> 00:13:00,000
+outdoors
+
+310
+00:12:58,399 --> 00:13:01,440
+let's say in a vehicle or something
+
+311
+00:13:00,000 --> 00:13:04,000
+where you have this mounted on the
+
+312
+00:13:01,440 --> 00:13:05,760
+bumper to detect distance and you have
+
+313
+00:13:04,000 --> 00:13:08,399
+the circuit board somewhere else within
+
+314
+00:13:05,759 --> 00:13:10,319
+the vehicle so it's a very inexpensive
+
+315
+00:13:08,399 --> 00:13:12,320
+and as you're going to see relatively
+
+316
+00:13:10,320 --> 00:13:14,399
+easy to use sensor
+
+317
+00:13:12,320 --> 00:13:16,720
+for our first experiment we'll require
+
+318
+00:13:14,399 --> 00:13:18,278
+an arduino uno
+
+319
+00:13:16,720 --> 00:13:22,160
+and a jsn
+
+320
+00:13:18,278 --> 00:13:24,078
+sr04t ultrasonic distance sensor module
+
+321
+00:13:22,159 --> 00:13:27,838
+we'll begin with this distance sensor
+
+322
+00:13:24,078 --> 00:13:29,679
+module in its default mode of mode 0.
+
+323
+00:13:27,839 --> 00:13:33,040
+we start by hooking the ground from the
+
+324
+00:13:29,679 --> 00:13:35,199
+arduino to the ground pin on the jsn
+
+325
+00:13:33,039 --> 00:13:37,599
+sr04t
+
+326
+00:13:35,200 --> 00:13:39,839
+the 5 volt output of our arduino will be
+
+327
+00:13:37,600 --> 00:13:42,159
+connected to the vcc pin on our
+
+328
+00:13:39,839 --> 00:13:44,639
+ultrasonic sensor
+
+329
+00:13:42,159 --> 00:13:49,919
+pin 11 of the arduino will be connected
+
+330
+00:13:44,639 --> 00:13:52,159
+to the echo or tx pin on the jsn sr04t
+
+331
+00:13:49,919 --> 00:13:54,159
+and pin 10 from the arduino will be
+
+332
+00:13:52,159 --> 00:13:57,039
+connected to the remaining pin which is
+
+333
+00:13:54,159 --> 00:14:01,078
+the trigger or rx pin
+
+334
+00:13:57,039 --> 00:14:01,078
+and this completes our wiring
+
+335
+00:14:02,078 --> 00:14:07,078
+now here's a sketch that we're going to
+
+336
+00:14:03,600 --> 00:14:08,720
+use for the mode 0 demo for the jsn
+
+337
+00:14:07,078 --> 00:14:10,679
+sr04t
+
+338
+00:14:08,720 --> 00:14:13,360
+and if you've used the
+
+339
+00:14:10,679 --> 00:14:15,278
+hcsr04 before you're going to recognize
+
+340
+00:14:13,360 --> 00:14:16,399
+the sketch because it is virtually
+
+341
+00:14:15,278 --> 00:14:18,320
+identical
+
+342
+00:14:16,399 --> 00:14:19,000
+to the sketch that i first demonstrated
+
+343
+00:14:18,320 --> 00:14:22,320
+the
+
+344
+00:14:19,000 --> 00:14:24,159
+hcsr04 with in fact there's only one
+
+345
+00:14:22,320 --> 00:14:25,760
+real difference and it has to do with
+
+346
+00:14:24,159 --> 00:14:27,759
+timing and i'll show you that in a
+
+347
+00:14:25,759 --> 00:14:29,759
+moment now we're going to start off the
+
+348
+00:14:27,759 --> 00:14:32,720
+sketch by defining the connections that
+
+349
+00:14:29,759 --> 00:14:34,958
+we made to the sensor and then we define
+
+350
+00:14:32,720 --> 00:14:37,360
+a couple of floats one that represents
+
+351
+00:14:34,958 --> 00:14:39,679
+the duration the amount of time it takes
+
+352
+00:14:37,360 --> 00:14:42,159
+the signal to come back and one that we
+
+353
+00:14:39,679 --> 00:14:43,519
+have to hold the actual distance that
+
+354
+00:14:42,159 --> 00:14:46,078
+we're calculating and we're going to
+
+355
+00:14:43,519 --> 00:14:48,320
+bring our distance back in millimeters
+
+356
+00:14:46,078 --> 00:14:50,958
+and then we go into our setup we set up
+
+357
+00:14:48,320 --> 00:14:53,600
+our serial monitor over here and we
+
+358
+00:14:50,958 --> 00:14:56,319
+define our two pins as inputs and
+
+359
+00:14:53,600 --> 00:14:59,519
+outputs respectively and go into the
+
+360
+00:14:56,320 --> 00:15:02,278
+loop now the loop again is very simple
+
+361
+00:14:59,519 --> 00:15:04,560
+this is how we manually use an
+
+362
+00:15:02,278 --> 00:15:07,439
+hcsr04 and it's how we're going to use
+
+363
+00:15:04,559 --> 00:15:09,359
+this sensor in mode 0 so we start off by
+
+364
+00:15:07,440 --> 00:15:10,880
+setting the trigger pin low for 2
+
+365
+00:15:09,360 --> 00:15:12,720
+microseconds
+
+366
+00:15:10,879 --> 00:15:14,879
+and then we set it high and here is
+
+367
+00:15:12,720 --> 00:15:17,240
+where i've changed the timing in the
+
+368
+00:15:14,879 --> 00:15:20,639
+original sketch that i used for the
+
+369
+00:15:17,240 --> 00:15:22,320
+hcsr04 i used 10 microsecond pulses and
+
+370
+00:15:20,639 --> 00:15:24,240
+when you read the spec sheet on the
+
+371
+00:15:22,320 --> 00:15:26,399
+hcsr04
+
+372
+00:15:24,240 --> 00:15:29,039
+this is the minimum amount that you can
+
+373
+00:15:26,399 --> 00:15:31,039
+use but you can use a longer pulse and i
+
+374
+00:15:29,039 --> 00:15:34,159
+found that with this sensor when i used
+
+375
+00:15:31,039 --> 00:15:36,240
+a 10 microsecond pulse i occasionally
+
+376
+00:15:34,159 --> 00:15:37,919
+got intermittent results and i think
+
+377
+00:15:36,240 --> 00:15:40,240
+this may be the result
+
+378
+00:15:37,919 --> 00:15:42,719
+of some people saying that this sensor
+
+379
+00:15:40,240 --> 00:15:44,159
+doesn't work it's simply because i think
+
+380
+00:15:42,720 --> 00:15:46,240
+they weren't giving it a long enough
+
+381
+00:15:44,159 --> 00:15:48,480
+pulse so i increased it to 20
+
+382
+00:15:46,240 --> 00:15:50,159
+microseconds and everything seemed to
+
+383
+00:15:48,480 --> 00:15:52,480
+work pretty fine so we're going to set
+
+384
+00:15:50,159 --> 00:15:54,958
+it high for 20 microseconds and then
+
+385
+00:15:52,480 --> 00:15:57,120
+bring it low and so this will have sent
+
+386
+00:15:54,958 --> 00:15:59,039
+out our ultrasonic pulses now we're
+
+387
+00:15:57,120 --> 00:16:02,000
+going to measure the width of the
+
+388
+00:15:59,039 --> 00:16:03,759
+incoming pulse so we use a pulse in to
+
+389
+00:16:02,000 --> 00:16:06,559
+measure the amount of time that the
+
+390
+00:16:03,759 --> 00:16:08,399
+pulse goes high coming in and then we
+
+391
+00:16:06,559 --> 00:16:10,758
+determine the distance
+
+392
+00:16:08,399 --> 00:16:13,519
+by that width over here now we're using
+
+393
+00:16:10,759 --> 00:16:16,560
+343 meters per second as the speed of
+
+394
+00:16:13,519 --> 00:16:18,879
+sound we're also dividing by a thousand
+
+395
+00:16:16,559 --> 00:16:20,638
+as we want millimeters so this is what
+
+396
+00:16:18,879 --> 00:16:23,278
+we're using over here and of course we
+
+397
+00:16:20,639 --> 00:16:24,879
+have to take the duration by 2 because
+
+398
+00:16:23,278 --> 00:16:27,039
+the signal is going out and being
+
+399
+00:16:24,879 --> 00:16:29,439
+reflected back so we only want half of
+
+400
+00:16:27,039 --> 00:16:32,240
+it and then finally we print our results
+
+401
+00:16:29,440 --> 00:16:34,399
+to the serial monitor and add a delay
+
+402
+00:16:32,240 --> 00:16:36,720
+before we repeat this gives everything
+
+403
+00:16:34,399 --> 00:16:39,360
+time to settle and then we do it all
+
+404
+00:16:36,720 --> 00:16:41,360
+over again so it's a very simple sketch
+
+405
+00:16:39,360 --> 00:16:43,278
+let's load it up and take a look at it
+
+406
+00:16:41,360 --> 00:16:46,560
+in action
+
+407
+00:16:43,278 --> 00:16:48,799
+and so here we have our mode 0 demo and
+
+408
+00:16:46,559 --> 00:16:51,719
+as you can see from the serial monitor
+
+409
+00:16:48,799 --> 00:16:54,399
+it's reading out readings pretty well of
+
+410
+00:16:51,720 --> 00:16:55,278
+226 millimeters which of course are
+
+411
+00:16:54,399 --> 00:16:57,919
+wrong
+
+412
+00:16:55,278 --> 00:17:00,958
+but remember this sensor has a minimum
+
+413
+00:16:57,919 --> 00:17:04,240
+range of 30 centimeters and that's about
+
+414
+00:17:00,958 --> 00:17:06,240
+a foot that's about 300 millimeters and
+
+415
+00:17:04,240 --> 00:17:07,759
+so when it gets below that it'll give a
+
+416
+00:17:06,240 --> 00:17:10,078
+false reading and i notice with this
+
+417
+00:17:07,759 --> 00:17:11,838
+particular one that i have that seems to
+
+418
+00:17:10,078 --> 00:17:13,838
+be the false reading so if i lift the
+
+419
+00:17:11,838 --> 00:17:15,198
+sensor up a little bit
+
+420
+00:17:13,838 --> 00:17:16,480
+we should start getting some more
+
+421
+00:17:15,199 --> 00:17:18,720
+accurate readings and this is the
+
+422
+00:17:16,480 --> 00:17:21,038
+distance basically between me
+
+423
+00:17:18,720 --> 00:17:23,279
+and the wall over here so if i get
+
+424
+00:17:21,038 --> 00:17:25,199
+something in the way
+
+425
+00:17:23,279 --> 00:17:26,959
+we should start seeing some readings
+
+426
+00:17:25,199 --> 00:17:28,480
+over here
+
+427
+00:17:26,959 --> 00:17:30,320
+and now we're approaching that 300
+
+428
+00:17:28,480 --> 00:17:33,759
+millimeters if i go back a little bit
+
+429
+00:17:30,319 --> 00:17:36,319
+over here it goes up so the sensor does
+
+430
+00:17:33,759 --> 00:17:38,400
+indeed seem to work although of course
+
+431
+00:17:36,319 --> 00:17:40,159
+we're not really accurately measuring
+
+432
+00:17:38,400 --> 00:17:42,080
+anything right now i don't know if my
+
+433
+00:17:40,160 --> 00:17:44,080
+381
+
+434
+00:17:42,079 --> 00:17:46,240
+millimeters over here is precise
+
+435
+00:17:44,079 --> 00:17:48,079
+although it's probably in the ballpark
+
+436
+00:17:46,240 --> 00:17:50,400
+and we will test this a little bit later
+
+437
+00:17:48,079 --> 00:17:52,798
+for accuracy but at least we know that
+
+438
+00:17:50,400 --> 00:17:54,960
+our circuit is working and that we are
+
+439
+00:17:52,798 --> 00:17:58,160
+unable to measure distance with this
+
+440
+00:17:54,960 --> 00:18:01,640
+ultrasonic sensor albeit distances over
+
+441
+00:17:58,160 --> 00:18:01,640
+30 centimeters
+
+442
+00:18:03,359 --> 00:18:07,439
+here's the sketch that we're going to
+
+443
+00:18:04,798 --> 00:18:10,639
+use for our sensor in mode 1 where it
+
+444
+00:18:07,440 --> 00:18:12,400
+sends back data in a serial fashion now
+
+445
+00:18:10,640 --> 00:18:14,720
+we're going to start off by including
+
+446
+00:18:12,400 --> 00:18:17,519
+the software serial library because the
+
+447
+00:18:14,720 --> 00:18:19,360
+arduino uno only has one serial port
+
+448
+00:18:17,519 --> 00:18:21,519
+which is being used for the usb
+
+449
+00:18:19,359 --> 00:18:23,599
+connection and then we define our
+
+450
+00:18:21,519 --> 00:18:25,359
+connections to the sensor over here so
+
+451
+00:18:23,599 --> 00:18:26,159
+the two pins that we've got it connected
+
+452
+00:18:25,359 --> 00:18:28,639
+to
+
+453
+00:18:26,160 --> 00:18:31,279
+and we create an array to store the
+
+454
+00:18:28,640 --> 00:18:33,759
+incoming serial data now if you recall
+
+455
+00:18:31,279 --> 00:18:35,678
+the data is in a format of four
+
+456
+00:18:33,759 --> 00:18:39,200
+consecutive bytes so we're going to set
+
+457
+00:18:35,679 --> 00:18:41,759
+up an array with four elements inside it
+
+458
+00:18:39,200 --> 00:18:44,319
+and we also need an integer to represent
+
+459
+00:18:41,759 --> 00:18:47,440
+our distance that's this over here and
+
+460
+00:18:44,319 --> 00:18:50,079
+we also have a character value to
+
+461
+00:18:47,440 --> 00:18:52,798
+represent our checksum to make certain
+
+462
+00:18:50,079 --> 00:18:55,119
+that our data has integrity we'll set up
+
+463
+00:18:52,798 --> 00:18:57,440
+an object to represent serial port
+
+464
+00:18:55,119 --> 00:18:59,439
+called my serial and attached it to two
+
+465
+00:18:57,440 --> 00:19:02,000
+different pins and then go into the
+
+466
+00:18:59,440 --> 00:19:04,320
+setup in this setup all we do is set up
+
+467
+00:19:02,000 --> 00:19:07,519
+our serial monitor and also set up our
+
+468
+00:19:04,319 --> 00:19:09,439
+software serial port at 9600 baud which
+
+469
+00:19:07,519 --> 00:19:10,558
+is the rate that the sensor gives data
+
+470
+00:19:09,440 --> 00:19:12,400
+back at
+
+471
+00:19:10,558 --> 00:19:14,240
+then we go into the loop we check first
+
+472
+00:19:12,400 --> 00:19:16,240
+of all to see if we actually have data
+
+473
+00:19:14,240 --> 00:19:18,798
+available if there is we add a small
+
+474
+00:19:16,240 --> 00:19:20,400
+delay and then we check for the packet
+
+475
+00:19:18,798 --> 00:19:23,200
+header and the packet header has
+
+476
+00:19:20,400 --> 00:19:25,519
+hexadecimal ff in it so we look at every
+
+477
+00:19:23,200 --> 00:19:27,919
+character coming in until we see that
+
+478
+00:19:25,519 --> 00:19:29,759
+and we know we've got the packet header
+
+479
+00:19:27,919 --> 00:19:32,080
+once we know we have the header we'll
+
+480
+00:19:29,759 --> 00:19:34,640
+insert that into the first element of
+
+481
+00:19:32,079 --> 00:19:37,038
+our array then the remaining three
+
+482
+00:19:34,640 --> 00:19:39,360
+characters of data will be inserted into
+
+483
+00:19:37,038 --> 00:19:41,759
+the next three consecutive elements of
+
+484
+00:19:39,359 --> 00:19:43,119
+the array which as you recall only has
+
+485
+00:19:41,759 --> 00:19:45,119
+four elements
+
+486
+00:19:43,119 --> 00:19:47,359
+then we'll compute the checksum by
+
+487
+00:19:45,119 --> 00:19:49,759
+adding up the data in the first three
+
+488
+00:19:47,359 --> 00:19:53,038
+elements and seeing the results if that
+
+489
+00:19:49,759 --> 00:19:55,200
+result equals what we have in the last
+
+490
+00:19:53,038 --> 00:19:58,160
+element of the array then the checksum
+
+491
+00:19:55,200 --> 00:20:00,240
+is correct and our data has integrity
+
+492
+00:19:58,160 --> 00:20:02,400
+and then we'll get the actual distance
+
+493
+00:20:00,240 --> 00:20:04,480
+and the distance is represented by the
+
+494
+00:20:02,400 --> 00:20:07,120
+two bytes in the middle of our array
+
+495
+00:20:04,480 --> 00:20:09,839
+numbers one and number two so we'll put
+
+496
+00:20:07,119 --> 00:20:12,319
+those two together and print everything
+
+497
+00:20:09,839 --> 00:20:15,439
+out to the serial monitor and then go
+
+498
+00:20:12,319 --> 00:20:17,439
+back up and do it all over again so it's
+
+499
+00:20:15,440 --> 00:20:19,360
+actually a pretty simple sketch let's
+
+500
+00:20:17,440 --> 00:20:22,000
+load it up and see how it works with our
+
+501
+00:20:19,359 --> 00:20:23,759
+sensor in mode 1.
+
+502
+00:20:22,000 --> 00:20:26,480
+and so we're going to repeat the same
+
+503
+00:20:23,759 --> 00:20:28,879
+test we did on mode 0 with our mode 1
+
+504
+00:20:26,480 --> 00:20:32,079
+sensor and once again you'll notice that
+
+505
+00:20:28,880 --> 00:20:34,720
+in idle it is reading about 230
+
+506
+00:20:32,079 --> 00:20:37,439
+millimeters again the minimum range of
+
+507
+00:20:34,720 --> 00:20:39,919
+this is 300 so you'll get false readings
+
+508
+00:20:37,440 --> 00:20:41,840
+when it is at minimum range
+
+509
+00:20:39,919 --> 00:20:43,520
+lift it up again so that we can actually
+
+510
+00:20:41,839 --> 00:20:45,678
+get a reading
+
+511
+00:20:43,519 --> 00:20:49,839
+back to my wall
+
+512
+00:20:45,679 --> 00:20:51,919
+and i'll put this in front of it move it
+
+513
+00:20:49,839 --> 00:20:54,079
+and it does indeed seem to be responding
+
+514
+00:20:51,919 --> 00:20:55,840
+once again we aren't verifying the
+
+515
+00:20:54,079 --> 00:20:57,519
+accuracy of these measurements just
+
+516
+00:20:55,839 --> 00:21:00,079
+simply the fact that it does measure
+
+517
+00:20:57,519 --> 00:21:02,079
+something and we will take it out later
+
+518
+00:21:00,079 --> 00:21:04,639
+and give it a proper accuracy
+
+519
+00:21:02,079 --> 00:21:07,519
+demonstration but it does seem to work
+
+520
+00:21:04,640 --> 00:21:09,200
+in mode one where the sensor itself is
+
+521
+00:21:07,519 --> 00:21:10,639
+doing all the calculations and just
+
+522
+00:21:09,200 --> 00:21:13,640
+passing the data back to the
+
+523
+00:21:10,640 --> 00:21:13,640
+microcontroller
+
+524
+00:21:14,240 --> 00:21:20,079
+now the a02 yyuw looks a little bit like
+
+525
+00:21:18,079 --> 00:21:22,079
+the hcsr04
+
+526
+00:21:20,079 --> 00:21:24,960
+in that you can see that it has both a
+
+527
+00:21:22,079 --> 00:21:27,279
+separate transmitter and receiver unlike
+
+528
+00:21:24,960 --> 00:21:29,519
+the last sensor that we just looked at
+
+529
+00:21:27,279 --> 00:21:32,079
+and it is completely encased in rubber
+
+530
+00:21:29,519 --> 00:21:33,839
+it's a very nice little unit and i
+
+531
+00:21:32,079 --> 00:21:35,678
+wanted to see if i could perhaps get
+
+532
+00:21:33,839 --> 00:21:38,240
+better performance than i did from the
+
+533
+00:21:35,679 --> 00:21:40,798
+previous sensor using this sensor now
+
+534
+00:21:38,240 --> 00:21:42,880
+this sensor only operates in a serial
+
+535
+00:21:40,798 --> 00:21:46,639
+mode it has no emulation mode for the
+
+536
+00:21:42,880 --> 00:21:49,200
+hcs hcsr04 whatsoever and so we are
+
+537
+00:21:46,640 --> 00:21:51,200
+going to be using it in that serial mode
+
+538
+00:21:49,200 --> 00:21:53,519
+now one interesting thing about that
+
+539
+00:21:51,200 --> 00:21:55,840
+serial mode is that it uses the exact
+
+540
+00:21:53,519 --> 00:21:58,720
+same data format that our previous
+
+541
+00:21:55,839 --> 00:22:01,038
+sensor used in mode 1. so we don't even
+
+542
+00:21:58,720 --> 00:22:02,960
+need to write any new code this time we
+
+543
+00:22:01,038 --> 00:22:05,679
+can just simply use the last sketch that
+
+544
+00:22:02,960 --> 00:22:07,679
+we used with this sensor and see how it
+
+545
+00:22:05,679 --> 00:22:10,400
+compares so let's take a look at the
+
+546
+00:22:07,679 --> 00:22:13,400
+sensor and then we'll go and see how it
+
+547
+00:22:10,400 --> 00:22:13,400
+works
+
+548
+00:22:14,480 --> 00:22:19,038
+the
+
+549
+00:22:15,720 --> 00:22:21,759
+a02yyuw is a fully waterproof ultrasonic
+
+550
+00:22:19,038 --> 00:22:24,798
+distance sensor the sensor works on
+
+551
+00:22:21,759 --> 00:22:27,119
+either 3.3 or 5 volts
+
+552
+00:22:24,798 --> 00:22:30,558
+it operates on a temperature range of
+
+553
+00:22:27,119 --> 00:22:34,399
+negative 15 to 60 degrees celsius this
+
+554
+00:22:30,558 --> 00:22:36,798
+sensor outputs serial data at 9600 baud
+
+555
+00:22:34,400 --> 00:22:39,759
+and the format of the data is identical
+
+556
+00:22:36,798 --> 00:22:42,759
+to that of the serial mode of the jsn
+
+557
+00:22:39,759 --> 00:22:42,759
+sr04t
+
+558
+00:22:43,519 --> 00:22:49,038
+the sensor has four connections as
+
+559
+00:22:45,519 --> 00:22:52,960
+follows pin 1 is the vcc which is the
+
+560
+00:22:49,038 --> 00:22:56,480
+power of either 3.3 or 5 volts pin 2 is
+
+561
+00:22:52,960 --> 00:22:58,400
+the ground pin 3 is the output selection
+
+562
+00:22:56,480 --> 00:23:01,279
+if you pull it high or just leave it
+
+563
+00:22:58,400 --> 00:23:03,840
+alone the data will come back every 300
+
+564
+00:23:01,279 --> 00:23:06,079
+milliseconds if you bring this pin low
+
+565
+00:23:03,839 --> 00:23:09,439
+the data will come back every 100
+
+566
+00:23:06,079 --> 00:23:11,678
+milliseconds the 300 millisecond data is
+
+567
+00:23:09,440 --> 00:23:14,080
+considered to be more stable so unless
+
+568
+00:23:11,679 --> 00:23:16,080
+you need data at a rate of 100
+
+569
+00:23:14,079 --> 00:23:19,439
+milliseconds you should just leave this
+
+570
+00:23:16,079 --> 00:23:22,000
+pin alone and finally pin 4 is the uart
+
+571
+00:23:19,440 --> 00:23:24,558
+output which contains the serial data
+
+572
+00:23:22,000 --> 00:23:28,480
+from the sensor so now let's go hook up
+
+573
+00:23:24,558 --> 00:23:31,158
+the a02 yyuw sensor
+
+574
+00:23:28,480 --> 00:23:33,519
+now here's just a quick look at the
+
+575
+00:23:31,159 --> 00:23:36,400
+a02yyuw and there's not really that much
+
+576
+00:23:33,519 --> 00:23:39,200
+to look at i've got the sensor over here
+
+577
+00:23:36,400 --> 00:23:41,759
+and i've also got an adapter cable and i
+
+578
+00:23:39,200 --> 00:23:43,798
+purchased this from df robot and it's
+
+579
+00:23:41,759 --> 00:23:46,400
+under their part number
+
+580
+00:23:43,798 --> 00:23:48,960
+sen0311 and they included this little
+
+581
+00:23:46,400 --> 00:23:52,480
+adapter cable which adapts the jst
+
+582
+00:23:48,960 --> 00:23:54,319
+connector on the sensor two four
+
+583
+00:23:52,480 --> 00:23:56,240
+separate wires that you can use for
+
+584
+00:23:54,319 --> 00:23:58,240
+experimenting purposes so that's going
+
+585
+00:23:56,240 --> 00:24:01,120
+to be very handy so let's just take a
+
+586
+00:23:58,240 --> 00:24:02,798
+quick look at the sensor itself again
+
+587
+00:24:01,119 --> 00:24:05,519
+really not much to see it's a completely
+
+588
+00:24:02,798 --> 00:24:06,679
+sealed unit you can see some resemblance
+
+589
+00:24:05,519 --> 00:24:08,879
+to the
+
+590
+00:24:06,679 --> 00:24:12,400
+hcsr04 and that has got a separate
+
+591
+00:24:08,880 --> 00:24:15,520
+transmit and receive transducer sealed
+
+592
+00:24:12,400 --> 00:24:18,159
+away with two mounting holes on each end
+
+593
+00:24:15,519 --> 00:24:19,839
+over here if i flip it over to the back
+
+594
+00:24:18,159 --> 00:24:22,320
+over here you'll see it's also
+
+595
+00:24:19,839 --> 00:24:24,558
+completely sealed it's got kind of a
+
+596
+00:24:22,319 --> 00:24:26,558
+rubberized feel to it and it's got a bit
+
+597
+00:24:24,558 --> 00:24:29,440
+of weight to it it feels like a very
+
+598
+00:24:26,558 --> 00:24:31,839
+solid product and so i'd feel quite
+
+599
+00:24:29,440 --> 00:24:34,960
+comfortable mounting this outdoors using
+
+600
+00:24:31,839 --> 00:24:38,000
+it in my outdoor robot etc so let's go
+
+601
+00:24:34,960 --> 00:24:40,079
+and hook it up and see what it can do
+
+602
+00:24:38,000 --> 00:24:42,640
+the wiring for our next sensor is just
+
+603
+00:24:40,079 --> 00:24:45,119
+as simple as the last one was a gain
+
+604
+00:24:42,640 --> 00:24:46,919
+will require an arduino uno
+
+605
+00:24:45,119 --> 00:24:50,639
+and an a02
+
+606
+00:24:46,919 --> 00:24:52,799
+yyuw ultrasonic sensor unit
+
+607
+00:24:50,640 --> 00:24:56,400
+we'll begin by connecting the 5 volts in
+
+608
+00:24:52,798 --> 00:24:58,960
+the arduino to the vcc of the ultrasonic
+
+609
+00:24:56,400 --> 00:25:01,038
+sensor this is the red wire
+
+610
+00:24:58,960 --> 00:25:02,960
+the arduino's ground will be connected
+
+611
+00:25:01,038 --> 00:25:04,400
+to the sensor's ground which is the
+
+612
+00:25:02,960 --> 00:25:07,120
+black wire
+
+613
+00:25:04,400 --> 00:25:10,480
+we'll connect pin 11 of our arduino to
+
+614
+00:25:07,119 --> 00:25:12,798
+the receive or blue wire on the sensor
+
+615
+00:25:10,480 --> 00:25:14,798
+and the sensor's remaining green wire
+
+616
+00:25:12,798 --> 00:25:17,359
+which is the transmit lead will be
+
+617
+00:25:14,798 --> 00:25:20,798
+connected to arduino pin 10
+
+618
+00:25:17,359 --> 00:25:26,158
+and this completes our wiring
+
+619
+00:25:20,798 --> 00:25:28,319
+now here i have my a02 yyuw sensor and
+
+620
+00:25:26,159 --> 00:25:30,320
+once again i'm going to try to measure
+
+621
+00:25:28,319 --> 00:25:32,798
+distances with it now you can come
+
+622
+00:25:30,319 --> 00:25:34,480
+closer than 30 millimeters with this one
+
+623
+00:25:32,798 --> 00:25:36,558
+so i can come in
+
+624
+00:25:34,480 --> 00:25:38,720
+a little bit more 30 centimeters excuse
+
+625
+00:25:36,558 --> 00:25:38,720
+me
+
+626
+00:25:38,960 --> 00:25:43,840
+i can actually come in quite close right
+
+627
+00:25:41,119 --> 00:25:43,839
+now
+
+628
+00:25:44,880 --> 00:25:48,080
+and here i am down to about 50
+
+629
+00:25:46,640 --> 00:25:51,520
+millimeters
+
+630
+00:25:48,079 --> 00:25:55,359
+and of course i can move it back
+
+631
+00:25:51,519 --> 00:25:57,519
+and get a reading as we would expect
+
+632
+00:25:55,359 --> 00:25:59,278
+and so this does seem to work just fine
+
+633
+00:25:57,519 --> 00:26:01,759
+using the code that we used for the
+
+634
+00:25:59,278 --> 00:26:03,599
+other sensor and once again we'll have
+
+635
+00:26:01,759 --> 00:26:07,278
+to actually take it out and give it a
+
+636
+00:26:03,599 --> 00:26:09,278
+proper test to see how accurate it is
+
+637
+00:26:07,278 --> 00:26:11,119
+so we've seen how our sensors work but
+
+638
+00:26:09,278 --> 00:26:13,200
+we haven't really given them a proper
+
+639
+00:26:11,119 --> 00:26:15,439
+test here on my workbench i just simply
+
+640
+00:26:13,200 --> 00:26:18,240
+don't have the space to check out their
+
+641
+00:26:15,440 --> 00:26:20,640
+range and our first sensor wouldn't even
+
+642
+00:26:18,240 --> 00:26:23,440
+work at anything underneath 22
+
+643
+00:26:20,640 --> 00:26:25,278
+centimeters and so what we need to do is
+
+644
+00:26:23,440 --> 00:26:26,960
+bring these things outside and that's
+
+645
+00:26:25,278 --> 00:26:29,119
+exactly what i'm going to do right now
+
+646
+00:26:26,960 --> 00:26:31,600
+i'm going to take both sensors outside
+
+647
+00:26:29,119 --> 00:26:33,678
+give them a test and see how they work
+
+648
+00:26:31,599 --> 00:26:36,158
+and i'll also even test out their
+
+649
+00:26:33,679 --> 00:26:38,000
+waterproof capabilities so let's go
+
+650
+00:26:36,159 --> 00:26:40,240
+ahead and take a look at that so i took
+
+651
+00:26:38,000 --> 00:26:42,880
+the experiment outside into my tiny
+
+652
+00:26:40,240 --> 00:26:44,640
+backyard along with a computer and i set
+
+653
+00:26:42,880 --> 00:26:47,120
+everything up so that i could read the
+
+654
+00:26:44,640 --> 00:26:49,600
+reflection off of my wall
+
+655
+00:26:47,119 --> 00:26:51,759
+i measured everything as best that i
+
+656
+00:26:49,599 --> 00:26:54,000
+could but of course the accuracy of
+
+657
+00:26:51,759 --> 00:26:55,599
+these measurements is going to be a
+
+658
+00:26:54,000 --> 00:26:58,880
+little bit off just because of my
+
+659
+00:26:55,599 --> 00:26:58,879
+measurement process
+
+660
+00:26:59,278 --> 00:27:03,839
+i then went and took measurements for
+
+661
+00:27:01,519 --> 00:27:06,240
+both sensors at a number of different
+
+662
+00:27:03,839 --> 00:27:08,240
+distances i also tried wetting the
+
+663
+00:27:06,240 --> 00:27:10,079
+sensors and was pleasantly surprised to
+
+664
+00:27:08,240 --> 00:27:12,319
+see that it really had no effect on the
+
+665
+00:27:10,079 --> 00:27:14,639
+reading by the way those of you who saw
+
+666
+00:27:12,319 --> 00:27:16,720
+my video on comparing ir sensors in
+
+667
+00:27:14,640 --> 00:27:19,120
+ultrasonic may notice that board in the
+
+668
+00:27:16,720 --> 00:27:20,880
+background unfortunately it was unusable
+
+669
+00:27:19,119 --> 00:27:22,798
+for these tests
+
+670
+00:27:20,880 --> 00:27:24,960
+here are the results that i got and as
+
+671
+00:27:22,798 --> 00:27:26,038
+you can see both sensors were pretty
+
+672
+00:27:24,960 --> 00:27:28,798
+accurate
+
+673
+00:27:26,038 --> 00:27:31,278
+2460 millimeters was the furthest that i
+
+674
+00:27:28,798 --> 00:27:33,200
+could measure in my tiny yard and as you
+
+675
+00:27:31,278 --> 00:27:36,000
+can see at the one meter mark they're
+
+676
+00:27:33,200 --> 00:27:37,679
+both very close on i would say that
+
+677
+00:27:36,000 --> 00:27:39,919
+either of these sensors would work
+
+678
+00:27:37,679 --> 00:27:42,880
+properly in your application although if
+
+679
+00:27:39,919 --> 00:27:44,320
+you need distances under 300 millimeters
+
+680
+00:27:42,880 --> 00:27:46,880
+you're probably best going with the
+
+681
+00:27:44,319 --> 00:27:51,119
+a02yyuw
+
+682
+00:27:46,880 --> 00:27:53,919
+as the jsn sr04t will not measure low
+
+683
+00:27:51,119 --> 00:27:56,000
+distances accurately also another thing
+
+684
+00:27:53,919 --> 00:27:58,480
+to note was that the ambient temperature
+
+685
+00:27:56,000 --> 00:28:00,398
+was rather cool it was only 14 degrees
+
+686
+00:27:58,480 --> 00:28:03,360
+celsius and of course that will affect
+
+687
+00:28:00,398 --> 00:28:06,158
+the speed of sound i made no effort to
+
+688
+00:28:03,359 --> 00:28:07,839
+compensate again wetting the sensors
+
+689
+00:28:06,159 --> 00:28:10,080
+didn't change the readings so i don't
+
+690
+00:28:07,839 --> 00:28:12,000
+have a separate set of readings for that
+
+691
+00:28:10,079 --> 00:28:13,439
+but i was pleasantly surprised to see
+
+692
+00:28:12,000 --> 00:28:16,720
+that because this means that these
+
+693
+00:28:13,440 --> 00:28:18,640
+sensors will indeed work in an outdoor
+
+694
+00:28:16,720 --> 00:28:20,399
+environment
+
+695
+00:28:18,640 --> 00:28:22,559
+now i do most of the filming for the
+
+696
+00:28:20,398 --> 00:28:24,639
+dronebot workshop channel here in my
+
+697
+00:28:22,558 --> 00:28:26,798
+workshop but as you saw from the last
+
+698
+00:28:24,640 --> 00:28:29,440
+scene i've also taken it occasionally
+
+699
+00:28:26,798 --> 00:28:31,599
+outside we've occasionally run a robot
+
+700
+00:28:29,440 --> 00:28:33,440
+on the floor outside the room
+
+701
+00:28:31,599 --> 00:28:35,439
+but there's a lot of my house you
+
+702
+00:28:33,440 --> 00:28:37,038
+haven't seen yet and there was one area
+
+703
+00:28:35,440 --> 00:28:39,200
+of my house that i never thought i would
+
+704
+00:28:37,038 --> 00:28:42,158
+be showing you yet i'm about to show it
+
+705
+00:28:39,200 --> 00:28:43,840
+to you right now and that is my bathroom
+
+706
+00:28:42,159 --> 00:28:46,000
+and the reason for that is i want to
+
+707
+00:28:43,839 --> 00:28:48,720
+give these sensors a test and see if
+
+708
+00:28:46,000 --> 00:28:50,640
+they will actually work under water and
+
+709
+00:28:48,720 --> 00:28:52,720
+as i don't own a swimming pool the
+
+710
+00:28:50,640 --> 00:28:55,679
+largest body of water that i have in my
+
+711
+00:28:52,720 --> 00:28:58,159
+home is my bathtub now i am not
+
+712
+00:28:55,679 --> 00:29:00,320
+expecting accurate results i'm not even
+
+713
+00:28:58,159 --> 00:29:02,399
+sure if i'm expecting any results from
+
+714
+00:29:00,319 --> 00:29:04,480
+these because of course the speed of
+
+715
+00:29:02,398 --> 00:29:06,879
+sound in water is different than the
+
+716
+00:29:04,480 --> 00:29:09,120
+speed of sound and air but i would like
+
+717
+00:29:06,880 --> 00:29:11,200
+to see if they are actually waterproof
+
+718
+00:29:09,119 --> 00:29:12,879
+and if they will work underwater so
+
+719
+00:29:11,200 --> 00:29:15,120
+let's go and take a look and see if they
+
+720
+00:29:12,880 --> 00:29:17,679
+will so i took the experiment up to the
+
+721
+00:29:15,119 --> 00:29:20,000
+bathtub and very carefully
+
+722
+00:29:17,679 --> 00:29:22,600
+immersed the sensors under water i had
+
+723
+00:29:20,000 --> 00:29:25,519
+to be particularly careful with the a02
+
+724
+00:29:22,599 --> 00:29:27,439
+yyuw because it has a very short cord
+
+725
+00:29:25,519 --> 00:29:30,240
+and i didn't want to drag my arduino
+
+726
+00:29:27,440 --> 00:29:32,558
+into the tub the results however were
+
+727
+00:29:30,240 --> 00:29:35,359
+very disappointing i got basically the
+
+728
+00:29:32,558 --> 00:29:37,119
+same reading from both of the sensors at
+
+729
+00:29:35,359 --> 00:29:38,719
+least each sensor gave a consistent
+
+730
+00:29:37,119 --> 00:29:41,119
+reading it wasn't the same reading
+
+731
+00:29:38,720 --> 00:29:44,079
+between the two of them and so they were
+
+732
+00:29:41,119 --> 00:29:46,479
+completely useless inside the tub
+
+733
+00:29:44,079 --> 00:29:48,398
+however one thing i did note is when i
+
+734
+00:29:46,480 --> 00:29:51,200
+pulled them out of the bathtub they
+
+735
+00:29:48,398 --> 00:29:53,599
+continued to work just fine so immersing
+
+736
+00:29:51,200 --> 00:29:55,519
+them completely in water didn't affect
+
+737
+00:29:53,599 --> 00:29:57,038
+them a bit they worked properly when
+
+738
+00:29:55,519 --> 00:29:59,440
+they were out of the water so they're
+
+739
+00:29:57,038 --> 00:30:02,000
+indeed waterproof but you can't use them
+
+740
+00:29:59,440 --> 00:30:04,880
+in a bathtub well that wraps up our look
+
+741
+00:30:02,000 --> 00:30:07,119
+at outdoor ultrasonic sensors and i hope
+
+742
+00:30:04,880 --> 00:30:09,120
+that you found it useful i know that i
+
+743
+00:30:07,119 --> 00:30:11,759
+found it useful because i think i can
+
+744
+00:30:09,119 --> 00:30:14,639
+determine which sensor i'm going to use
+
+745
+00:30:11,759 --> 00:30:16,640
+for my outdoor robot project a project
+
+746
+00:30:14,640 --> 00:30:19,038
+that i will be showing you very soon by
+
+747
+00:30:16,640 --> 00:30:20,480
+the way here on the dronebot workshop
+
+748
+00:30:19,038 --> 00:30:22,879
+youtube channel so if you're not a
+
+749
+00:30:20,480 --> 00:30:24,960
+channel subscriber please do that all
+
+750
+00:30:22,880 --> 00:30:27,360
+you need to do is click on the little
+
+751
+00:30:24,960 --> 00:30:29,360
+subscribe button and if you also click
+
+752
+00:30:27,359 --> 00:30:31,839
+on the bell notification you will get
+
+753
+00:30:29,359 --> 00:30:33,439
+notified every time that i make a new
+
+754
+00:30:31,839 --> 00:30:36,079
+video and that of course is assuming
+
+755
+00:30:33,440 --> 00:30:38,558
+that you've got notifications enabled on
+
+756
+00:30:36,079 --> 00:30:40,558
+your youtube account now if you need the
+
+757
+00:30:38,558 --> 00:30:42,319
+code that i used today or if you want a
+
+758
+00:30:40,558 --> 00:30:45,240
+bit more information about the two
+
+759
+00:30:42,319 --> 00:30:47,200
+sensors we looked at head over to the
+
+760
+00:30:45,240 --> 00:30:49,200
+dronebotworkshop.com website where you
+
+761
+00:30:47,200 --> 00:30:50,720
+will find an article that accompanies
+
+762
+00:30:49,200 --> 00:30:53,600
+this video and there's a link to that
+
+763
+00:30:50,720 --> 00:30:55,759
+article right below the video and if
+
+764
+00:30:53,599 --> 00:30:58,158
+you'd like to discuss this well the best
+
+765
+00:30:55,759 --> 00:31:00,000
+place of course is the dronebot workshop
+
+766
+00:30:58,159 --> 00:31:02,240
+forums we've got a lot of great people
+
+767
+00:31:00,000 --> 00:31:04,480
+on the forum who can help you out with
+
+768
+00:31:02,240 --> 00:31:06,960
+your projects or you could perhaps help
+
+769
+00:31:04,480 --> 00:31:08,640
+them out as well it's free to join so
+
+770
+00:31:06,960 --> 00:31:11,200
+head over to the forum where you will
+
+771
+00:31:08,640 --> 00:31:13,919
+find a thread that discusses this video
+
+772
+00:31:11,200 --> 00:31:15,840
+specifically and finally if you want
+
+773
+00:31:13,919 --> 00:31:18,000
+more information about what's going on
+
+774
+00:31:15,839 --> 00:31:19,839
+in the workshop or more info about that
+
+775
+00:31:18,000 --> 00:31:22,000
+outdoor robot please consider
+
+776
+00:31:19,839 --> 00:31:24,319
+subscribing to my newsletter again it's
+
+777
+00:31:22,000 --> 00:31:26,319
+absolutely free it's not a sales letter
+
+778
+00:31:24,319 --> 00:31:28,240
+just my way of occasionally keeping in
+
+779
+00:31:26,319 --> 00:31:31,200
+touch with you to let you know what's
+
+780
+00:31:28,240 --> 00:31:33,120
+going on here in the workshop so until
+
+781
+00:31:31,200 --> 00:31:35,440
+we meet the next time please take good
+
+782
+00:31:33,119 --> 00:31:37,759
+care of yourself please stay safe out
+
+783
+00:31:35,440 --> 00:31:40,080
+there and we will see you again very
+
+784
+00:31:37,759 --> 00:31:42,059
+soon here in the dronebot workshop
+
+785
+00:31:40,079 --> 00:32:10,480
+goodbye for now
+
+786
+00:31:42,059 --> 00:32:12,558
+[Music]
+
+787
+00:32:10,480 --> 00:32:12,558
+you
+

@@ -1,0 +1,37 @@
+Today we will take a look at the JSN-SR04T and A02YYUW Waterproof Ultrasonic Distance Sensors.  We will see how they work outside, and we’ll even test to see if they work underwater (spoiler alert - they won’t!).
+
+Article with code: https://dronebotworkshop.com/waterproof-ultrasonic
+More articles and tutorials: https://dronebotworkshop.com
+Join the conversation on the forum: https://forum.dronebotworkshop.com
+Subscribe to the newsletter and stay in touch: https://dronebotworkshop.com/subscribe/
+
+When we think of ultrasonic distance sensors, chances are we are thinking of the popular HC-SR04. After all, it’s simple to use, it works pretty well, and it is very inexpensive.
+
+But while the HC-SR04 is a great sensor for indoor use, it isn’t really suitable for use outdoors. It is susceptible to dirt, it’s relatively fragile and, most importantly, it isn’t waterproof. 
+
+So today I’ll be examining a couple of ultrasonic distance sensors that are fully waterproof. They also are more advanced than the HC-SR04, as they are both capable of calculating the distance measurement by themselves, without the aid of a microcontroller or microcomputer.
+
+The JSN-SR04T is an interesting sensor for a number of reasons. First, it uses a single transducer, instead of a separate transmit and receive transducer. Second, the transducer is attached to the main circuit board with a 2-meter cable, allowing you to mount the waterproof sensor remote from the non-waterproof board. And third, it actually has six modes of operation.
+
+The A02YYUW looks a bit like a large, rubberized HC-SR-04 in that it has a separate receive and transmit transducer.  But that’s where the resemblance ends. This is a smart sensor that outputs serial data, and it can run on 3.3 or 5 volts.
+
+We’ll hook up both sensors to an Arduino Uno and write some simple code to use them. And, as the JSN-SR04 and A02YYUW both use the same format of serial data, we can even reuse the same sketch for both sensors!
+
+Here is the table of contents for today’s video:
+
+00:00 - Introduction
+01:33 - How Ultrasonic Distance Sensors Work
+04:37 - Look at the two sensors
+05:50 - Using the JSN-SR04T Version 3.0
+13:12 - JSN-SR04T Mode 0 Sketch & Demo (HC-SR04 Emulator)
+18:01 - JSN-SR04T Mode 1 Sketch & Demo (Serial Data)
+21:13 - Using the A02YYUW
+26:06 - Outdoor Tests
+28:18 - Underwater Tests
+30:00 - Conclusion
+
+As always you’ll find an article accompanying this video where you can grab all the code I used, as well as pick up some more information.
+
+Hope you enjoy the video!
+
+Bill
