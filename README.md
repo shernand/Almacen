@@ -1,6 +1,3 @@
-# Plantilla para aplicaciones de sistemas digitales
-## Para distintas plataformas y lenguajes de programación
-### Arduino
-### Ensamblador
-### Python
-## Java
+# Almacén temporal para archivos de trabajo.
+## Es un flujo UV <-> Casa <-> Cursos.
+## Aquí habrá información que se modficará frecuentemente
